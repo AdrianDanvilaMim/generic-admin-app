@@ -1,26 +1,34 @@
 
 import './App.css'
 import {Header} from "./components/Header.tsx";
-import { Route, Routes} from "react-router-dom";
 import {Navigation} from "./components/Navigation.tsx";
+import {Route, Routes} from "react-router-dom";
 import {Dashboard} from "./pages/Dashboard.tsx";
+
 
 
 function App() {
     return (
-        <div className="App bg-black ">
-            <Header></Header>
-            <div className={"flex flex-row  h-52   "}>
+        <div className="App h-fit">
+            <div className={"flex flex-row h-fit"}>
                 <Navigation></Navigation>
-                <div className={"bg-green-400 h-full mx-2 w-11/12 rounded-2xl m-2  flex justify-center"}>
-                    <Routes>
-                        <Route path="/" element={
-                            <Dashboard></Dashboard>
-                        }/>
-                    </Routes>
+                <div className={"w-full h-fit "}>
+                    <Header></Header>
+                    <div className={"h-screen no-scrollbar  overflow-hidden hover:overflow-y-scroll"}>
+
+                        <Routes>
+                            <Route path={"/*/dashboard"} element={
+                                <div>
+                                    <Dashboard></Dashboard>
+                                </div>
+                            }></Route>
+                        </Routes>
+                    </div>
+
                 </div>
             </div>
-            <footer className={"bg-amber-200 m-4"}>
+
+            <footer className={"bg-amber-200 "}>
                 footer
             </footer>
         </div>

@@ -1,9 +1,24 @@
+import {Link} from "react-router-dom";
+
 export const   Header =()=>{
     return(
-        <header className={"h-1/6 bg-amber-200  w-full fixed"}>
-            <div className={"space-x-0 flex flex-row justify-between space-a h-full"}>
-                <div className={"mx-2 py-5"}>foto</div>
-                <div className={"pr-2  py-5"}>foto</div>
+        <header className={"h-1/5 w-full sticky top-0 z-50 bg-white"}>
+            <div className={"space-x-0 flex flex-row justify-between space-ah-10 border-b-2"}>
+                <div className={"mx-2 text-black w-10/12 flex flex-row ml-10 border-r-2"}>
+                    <input type={"text"} placeholder={"hola"} className={"h-full w-11/12 focus:outline-none"}/>
+                    <button className={"m-3"}>buscar</button>
+                </div>
+                <div className={"pr-2  py-5 w-3/12  flex flex-row justify-center md:justify-between items-center"}>
+                    <div className={"text-black hidden w-1/2 md:flex flex-row justify-between"}>
+                        <div className={""}><Link to="/logout">Log out</Link></div>
+                        <div className={""}><Link to="/logout"> Profile</Link></div>
+                    </div>
+
+
+                    <img
+                        className="inline-block h-10 w-10 rounded-full ring-2 ring-black"
+                        alt=""/>
+                </div>
             </div>
         </header>
     )
