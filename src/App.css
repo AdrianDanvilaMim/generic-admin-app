@@ -3,6 +3,99 @@
 @tailwind utilities;
 
 
+@font-face {
+    font-family: 'icomoon';
+    src:  url('../public/fonts/icomoon.ttf?8twwe');
+    src:  url('../public/fonts/icomoon.eot?8twwe#iefix') format('embedded-opentype'),
+    url('../public/fonts/icomoon.ttf?8twwe') format('truetype'),
+    url('../public/fonts/icomoon.woff?8twwe') format('woff'),
+    url('../public/fonts/icomoon.svg?8twwe#icomoon') format('svg');
+    font-weight: normal;
+    font-style: normal;
+    font-display: block;
+}
+
+@font-face {
+    font-family: 'icomoon';
+    src:  url('fonts/icomoon.eot?8twwe');
+    src:  url('fonts/icomoon.eot?8twwe#iefix') format('embedded-opentype'),
+    url('fonts/icomoon.ttf?8twwe') format('truetype'),
+    url('fonts/icomoon.woff?8twwe') format('woff'),
+    url('fonts/icomoon.svg?8twwe#icomoon') format('svg');
+    font-weight: normal;
+    font-style: normal;
+    font-display: block;
+}
+
+[class^="icon-"], [class*=" icon-"] {
+    /* use !important to prevent issues with browser extensions that change fonts */
+    font-family: 'icomoon' !important;
+    speak: never;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+
+    /* Better Font Rendering =========== */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-home:before {
+    content: "\e900";
+}
+.icon-pencil:before {
+    content: "\e905";
+}
+.icon-images:before {
+    content: "\e90e";
+}
+.icon-user:before {
+    content: "\e971";
+}
+.icon-arrow-up-left:before {
+    content: "\ea31";
+}
+.icon-arrow-up:before {
+    content: "\ea32";
+}
+.icon-arrow-up-right:before {
+    content: "\ea33";
+}
+.icon-arrow-right:before {
+    content: "\ea34";
+}
+.icon-arrow-down-right:before {
+    content: "\ea35";
+}
+.icon-arrow-down:before {
+    content: "\ea36";
+}
+.icon-arrow-down-left:before {
+    content: "\ea37";
+}
+.icon-arrow-left:before {
+    content: "\ea38";
+}
+.icon-paragraph-justify:before {
+    content: "\ea7a";
+}
+.icon-instagram:before {
+    content: "\ea92";
+}
+.icon-whatsapp:before {
+    content: "\ea93";
+}
+.icon-spotify:before {
+    content: "\ea94";
+}
+.icon-telegram:before {
+    content: "\ea95";
+}
+.icon-twitter:before {
+    content: "\ea96";
+}
 
 .main-container{
     display: grid;

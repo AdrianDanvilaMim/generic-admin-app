@@ -10,7 +10,17 @@ module.exports =  {
             colors:{
                 primary:{
                     1:'#4825ff',
-                    2:'#3300bd'
+                    2:'#3300bd',
+                    3:'rgba(101,104,255,0.89)'
+                },
+
+                secondary:{
+                   1:'#f4f4f4'
+                },
+                textPrimary:{
+                    1:'#ffffff'
+                    ,
+                    2:'#ffffff'
                 },
                 scarWhite:{
                     1:'#ffffff'

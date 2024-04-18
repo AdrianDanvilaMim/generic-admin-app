@@ -4,6 +4,7 @@ import {Header} from "./components/Header.tsx";
 import {Navigation} from "./components/Navigation.tsx";
 import {Route, Routes} from "react-router-dom";
 import {Dashboard} from "./pages/Dashboard.tsx";
+import {TaskList} from "./pages/TaskList.tsx";
 
 
 
@@ -14,12 +15,18 @@ function App() {
                 <Navigation></Navigation>
                 <div className={"w-full h-fit "}>
                     <Header></Header>
-                    <div className={"h-screen no-scrollbar  overflow-hidden hover:overflow-y-scroll"}>
-
+                    <div className={"h-screen no-scrollbar bg-secondary-1  overflow-hidden hover:overflow-y-scroll"}>
                         <Routes>
                             <Route path={"/*/dashboard"} element={
-                                <div>
+                                <div className={"flex justify-between  flex-row flex-wrap m-6"}>
+                                    <div className={"flex flex-row justify-end w-full"}>
+                                        <div className={"flex justify-center items-center w-1/2"}>
+                                            hotaaaaaaaa
+                                        </div>
+                                        <TaskList></TaskList>
+                                    </div>
                                     <Dashboard></Dashboard>
+
                                 </div>
                             }></Route>
                         </Routes>
@@ -27,10 +34,7 @@ function App() {
 
                 </div>
             </div>
-
-            <footer className={"bg-amber-200 "}>
-                footer
-            </footer>
+            <footer>a</footer>
         </div>
     );
 }
