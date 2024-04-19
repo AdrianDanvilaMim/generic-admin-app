@@ -12,7 +12,7 @@ export const Navigation = ()=>{
                     <ul className={"flex flex-col  h-full relative"}>
 
 
-                        <Link to="/*/c">
+                        <Link to="/*/dashboard">
                             <li className={"ml-2  hover:bg-primary-3 hover:text-scarWhite-1 transition duration-150 ease-in-out rounded-2xl h-14 text-xl item flex items-center text-secondary-1"}>
                                 <p className={"m-2 icon-home"}></p>
                                 <p className={"m-2 "}>Home</p>

@@ -12,7 +12,7 @@ export const   Header =()=>{
                     <div className={"text-black hidden w-1/2 md:flex flex-row justify-around"}>
                         <div className={""}><Link to="/logout" className={'flex items-center '}><p
                             className={"m-2 icon-arrow-left"}></p>logout</Link></div>
-                        <div className={""}><Link to="/logout" className={'flex items-center '}><p
+                        <div className={""}><Link to="/*/profile" className={'flex items-center '}><p
                             className={"m-2 icon-user"}></p>Profile</Link></div>
                     </div>
                     <img className="inline-block h-10 w-10 rounded-full ring-2 ring-black" alt=""/>

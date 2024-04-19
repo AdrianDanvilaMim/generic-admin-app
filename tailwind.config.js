@@ -15,7 +15,9 @@ module.exports =  {
                 },
 
                 secondary:{
-                   1:'#f4f4f4'
+                    1:'#f4f4f4',
+                    2:'#aeadad',
+                    3:'#f4f4f4',
                 },
                 details:{
                     1:'#1e1e1e'
