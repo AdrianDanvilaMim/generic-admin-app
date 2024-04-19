@@ -4,37 +4,26 @@ import {Header} from "./components/Header.tsx";
 import {Navigation} from "./components/Navigation.tsx";
 import {Route, Routes} from "react-router-dom";
 import {Dashboard} from "./pages/Dashboard.tsx";
-import {TaskList} from "./pages/TaskList.tsx";
-
-
+import {Footer} from "./components/Footer.tsx";
 
 function App() {
     return (
         <div className="App h-fit">
-            <div className={"flex flex-row h-fit"}>
+            <div className={"flex flex-row h-fit " }>
                 <Navigation></Navigation>
-                <div className={"w-full h-fit "}>
+                <div className={"w-full h-fit"}>
                     <Header></Header>
-                    <div className={"h-screen no-scrollbar bg-secondary-1  overflow-hidden hover:overflow-y-scroll"}>
+                    <main className={"h-screen no-scrollbar bg-secondary-1  overflow-hidden hover:overflow-y-scroll"}>
                         <Routes>
-                            <Route path={"/*/dashboard"} element={
-                                <div className={"flex justify-between  flex-row flex-wrap m-6"}>
-                                    <div className={"flex flex-row justify-end w-full"}>
-                                        <div className={"flex justify-center items-center w-1/2"}>
-                                            hotaaaaaaaa
-                                        </div>
-                                        <TaskList></TaskList>
-                                    </div>
-                                    <Dashboard></Dashboard>
-
-                                </div>
-                            }></Route>
+                            <Route path={"/*/dashboard"} element={<Dashboard></Dashboard>}></Route>
+                            <Route path={"/*/dashboard"} element={<Dashboard></Dashboard>}></Route>
+                            <Route path={"/*/dashboard"} element={<Dashboard></Dashboard>}></Route>
+                            <Route path={"/*/dashboard"} element={<Dashboard></Dashboard>}></Route>
                         </Routes>
-                    </div>
-
+                    </main>
                 </div>
             </div>
-            <footer>a</footer>
+            <Footer></Footer>
         </div>
     );
 }

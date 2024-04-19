@@ -17,6 +17,9 @@ module.exports =  {
                 secondary:{
                    1:'#f4f4f4'
                 },
+                details:{
+                    1:'#1e1e1e'
+                },
                 textPrimary:{
                     1:'#ffffff'
                     ,
