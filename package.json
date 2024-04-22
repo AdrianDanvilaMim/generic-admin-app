@@ -3,6 +3,7 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
+  "proxy": "http://localhost:8080/",
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
@@ -11,6 +12,7 @@
   },
   "dependencies": {
     "@reduxjs/toolkit": "^2.2.3",
+    "bcrypt": "^5.1.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-redux": "^9.1.1",

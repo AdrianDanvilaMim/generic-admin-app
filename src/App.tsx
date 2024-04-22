@@ -7,7 +7,10 @@ import {Dashboard} from "./pages/Dashboard.tsx";
 import {Footer} from "./components/Footer.tsx";
 import {Profile} from "./pages/Profile.tsx";
 
+
 function App() {
+
+
     return (
         <div className="App h-fit">
             <div className={"flex flex-row h-fit " }>

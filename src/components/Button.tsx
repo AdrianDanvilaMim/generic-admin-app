@@ -6,18 +6,19 @@ interface ButtonPropsInterface{
     //todo
     value?:never;
     url?:string;
-    onClick: (url:string)=>void;
+    onClickLink?: (url:string)=>void;
+    onClick?: ()=>void;
     children:ReactNode
 
 }
 
-export const Button  =({type,className,url,onClick,children}:ButtonPropsInterface)=>{
+export const Button  =({type,className,url,onClick,onClickLink,children}:ButtonPropsInterface)=>{
     return(
         <>
             <button type={type} className={className}
                     onClick={()=>{
-                        if (url)
-                        onClick(url)
+                        if (url && onClickLink) onClickLink(url)
+                        else if(onClick) onClick()
                     }}>
                     {children}
             </button>
