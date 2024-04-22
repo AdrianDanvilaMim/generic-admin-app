@@ -1,21 +1,15 @@
 import {createSlice, PayloadAction} from "@reduxjs/toolkit";
+import {User} from "../types/types.ts";
 
 
-type User = {
-    id?: string,
-    name: string,
-    mail: string,
-    gender: string,
-    heigth: number,
-    weigth: number
-}
+
 type userState={
     user:User
     userBackUp:User
 }
 const initialState:userState ={
     user:{
-        id: "",
+        id: "1",
         name: "string",
         mail: "string",
         gender: "string",
@@ -23,7 +17,7 @@ const initialState:userState ={
         weigth: 2
     },
     userBackUp:{
-        id: "",
+        id: "1",
         name: "string",
         mail: "string",
         gender: "string",
@@ -39,7 +33,7 @@ export const userSlice = createSlice(
             userAdd(state,actions:PayloadAction<User>){
                 console.log(actions.payload);
                 state.user = actions.payload
-                state.userBackUp = actions.payload
+                state.userBackUp = state.user
                 console.log(state);
 
             },
@@ -78,8 +72,18 @@ export const userSlice = createSlice(
                 state.user = state.userBackUp
                 console.log(state);
             },
+
+            userExit(state){
+                state.user = { id: "0",
+                    name: "",
+                    mail: "",
+                    gender: "",
+                    heigth: 0,
+                    weigth: 0}
+                state.userBackUp = state.user
+            },
         }
 }
 )
 
-export const {userAdd,userChangeValue,userCancelUpdate,userUpdate} = userSlice.actions
+export const {userAdd,userChangeValue,userCancelUpdate,userUpdate,userExit} = userSlice.actions

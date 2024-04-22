@@ -1,17 +1,11 @@
 import { Button } from "../components/Button.tsx";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
+import {User} from "../types/types.ts";
 
 
 
-type User = {
-    name: string,
-    password: string,
-    mail: string,
-    gender: string,
-    heigth: number,
-    weigth: number
-}
+
 
 
 export const Register = () => {
@@ -25,14 +19,8 @@ export const Register = () => {
     const [mail, setmail] = useState<string>("your@mail.com")
     const [heigth, setheigth] = useState<number>(30)
     const [weigth, setweigth] = useState<number>(30)
-    const user: User = {
-        name,
-        password,
-        mail,
-        gender,
-        heigth,
-        weigth
-    }
+
+    const user: User = {name, mail, gender,password, heigth, weigth}
 
     const inputClassName = "h-12 w-full focus:outline-none focus:bg-primary-1 focus:text-white focus:rounded-2xl border-b-primary-2 border-b-2 transition ease-in-out delay-50 duration-300"
     const navigate = useNavigate();
@@ -104,9 +92,9 @@ export const Register = () => {
     return (
         <main className={"bg-[url('../../public/bg-login.png')] bg-cover h-screen w-full flex flex-col justify-center items-center"}>
             <div className={"bg-white  w-fit h-fit xl:w-1/3   flex flex-col rounded-2xl shadow-2xl"}>
-                <h1 className={'text-4xl m-5'}>Register</h1>
-                <div className={" h-fit m-5 "}>
-                    <form className={"h-fit flex flex-col justify-around my-10  "} onChange={formChangeHandler}>
+                <h1 className={'text-3xl mx-5 my-2'}>Register</h1>
+                <div className={" h-fit mx-5 "}>
+                    <form className={"h-fit flex flex-col justify-around my-5  "} onChange={formChangeHandler}>
                         <div className={"flex-row flex w-full justify-around"}>
                             <div className={"rounded-2xl my-4 mr-5 w-full "}>
                                 <label>Name</label>

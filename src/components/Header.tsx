@@ -1,6 +1,16 @@
-import {Link} from "react-router-dom";
+import {Link, useNavigate} from "react-router-dom";
+import {useAppDispatch} from "../hooks/hooks.ts";
+import {userExit} from "../reducers/userSlice.tsx";
 
 export const   Header =()=>{
+    const navigate = useNavigate();
+    const dispatch = useAppDispatch()
+
+    const exitClickHandler =()=>{
+        dispatch(userExit())
+        navigate("/")
+        console.log("hola")
+    }
     return(
         <header className={"h-1/5 w-full sticky top-0 z-50 bg-white"}>
             <div className={"space-x-0 flex flex-row justify-eve space-ah-10 border-b-2"}>
@@ -10,8 +20,11 @@ export const   Header =()=>{
                 </div>
                 <div className={"pr-2  py-5 w-2/12 md:w-7/12 lg:w-5/12 xl:w-4/12 2xl:w-4/12   flex flex-row justify-center md:justify-evenly items-center"}>
                     <div className={"text-black hidden w-1/2 md:flex flex-row justify-around"}>
-                        <div className={""}><Link to="/logout" className={'flex items-center '}><p
-                            className={"m-2 icon-arrow-left"}></p>logout</Link></div>
+                        <div className={" flex items-center pointer-events-auto hover:cursor-pointer"} onClick={exitClickHandler}>
+
+                                <p className={"m-2 icon-arrow-left"}></p>logout
+
+                        </div>
                         <div className={""}><Link to="/*/profile" className={'flex items-center '}><p
                             className={"m-2 icon-user"}></p>Profile</Link></div>
                     </div>

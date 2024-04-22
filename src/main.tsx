@@ -8,13 +8,12 @@ import { Provider } from 'react-redux';
 import { store } from './store.tsx';
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
-    <Provider store={store}>
+    <Provider store={store} >
         <BrowserRouter>
-            <Routes>
+            <Routes >
                 <Route path={"/"} element={<Navigate to={"/login"} />}></Route>
                 <Route path={"/login"} element={<Login></Login>}></Route>
                 <Route path={"/register"} element={<Register></Register>}></Route>
-                <Route path={"/logout"} element={<div>logOut</div>}></Route>
                 <Route path={"/*"} element={<App />}></Route>
             </Routes>
         </BrowserRouter>
