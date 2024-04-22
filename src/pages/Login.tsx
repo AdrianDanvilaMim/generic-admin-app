@@ -41,16 +41,16 @@ export const Login = () => {
             <div className={"bg-white sm:w-96 w-80 h-fit   flex flex-col rounded-2xl shadow-2xl"}>
                 <h1 className={'text-4xl m-5'}>Login</h1>
                 <div className={" h-full m-5 flex flex-col justify-between"}>
-                    <form className={"h-64 flex flex-col justify-around"}>
+                    <form className={"h-64 flex flex-col justify-around disabled:invisible"} >
 
                         <div className={" rounded-2xl"}>
                             <label>Email</label>
                             <input type={"email"} placeholder={mail}  onChange={(e) => { setmail(e.currentTarget.value) }}
-                                className={"h-12 w-full focus:outline-none focus:bg-primary-1 focus:text-white focus:rounded-2xl border-b-primary-2 border-b-2 "} />
+                                className={"disabled: h-12 w-full focus:outline-none focus:bg-primary-1 focus:text-white focus:rounded-2xl border-b-primary-2 border-b-2 "} />
                         </div>
 
                         <div className={" rounded-2xl"}>
-                            <label>PassWord</label>
+                            <label>Password</label>
                             <input type={"password"} placeholder={""} value={password} onChange={(e) => { setPassword(e.currentTarget.value) }}
                                 className={"h-12 w-full focus:outline-none focus:bg-primary-1 focus:text-white focus:rounded-2xl border-b-primary-2 border-b-2 "} />
                         </div>

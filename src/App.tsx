@@ -17,7 +17,7 @@ function App() {
                 <Navigation></Navigation>
                 <div className={"w-full h-fit"}>
                     <Header></Header>
-                    <main className={"h-screen no-scrollbar bg-secondary-1  overflow-hidden hover:overflow-y-scroll flex flex-col items-center"}>
+                    <main className={"h-screen no-scrollbar bg-[url('../../public/bg-login.png')] bg-cover  overflow-hidden hover:overflow-y-scroll flex flex-col items-center"}>
                         <Routes>
                             <Route path={"/*/dashboard"} element={<Dashboard></Dashboard>}></Route>
                             <Route path={"/*/profile"} element={<Profile></Profile>}></Route>

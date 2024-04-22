@@ -58,18 +58,16 @@ export const Register = () => {
 
         return await response.json()
     }
+
     const onClickHandler = async (url: string) => {
         try {
-            await checkmail("http://localhost:8080/api/user/mailVerification/" + mail)
+            //await checkmail("http://localhost:8080/api/user/mailVerification/" + mail)
             console.log("mail ya existe");
-
         } catch (error) {
-            sethassedPassword(bcrypt.hashSync(password, '$2a$10$CwTycUXWue0Thq9StjUM0u'))
-
             console.log("no existe el mail");
-            await postUser("http://localhost:8080/api/user", user)
+            //await postUser("http://localhost:8080/api/user", user)
             //if (await postUser("http://localhost:8080/api/user", user))
-            //navigate(url);
+            navigate(url);
 
         }
     }
