@@ -18,17 +18,34 @@ export const   Header =()=>{
                     <input type={"text"} placeholder={"hola"} className={"h-full w-11/12 focus:outline-none"}/>
                     <button className={"m-3"}>buscar</button>
                 </div>
-                <div className={"pr-2  py-5 w-2/12 md:w-7/12 lg:w-5/12 xl:w-4/12 2xl:w-4/12   flex flex-row justify-center md:justify-evenly items-center"}>
+                <div
+                    className={"pr-2  py-5 w-4/12 md:w-7/12 lg:w-5/12 xl:w-4/12 2xl:w-4/12   flex flex-row justify-center md:justify-evenly items-center"}>
                     <div className={"text-black hidden w-1/2 md:flex flex-row justify-around"}>
-                        <div className={" flex items-center pointer-events-auto hover:cursor-pointer"} onClick={exitClickHandler}>
-
-                                <p className={"m-2 icon-arrow-left"}></p>logout
-
+                        <div className={" flex items-center pointer-events-auto hover:cursor-pointer"}
+                             onClick={exitClickHandler}>
+                            <p className={"m-2 icon-arrow-left"}></p>logout
                         </div>
                         <div className={""}><Link to="/*/profile" className={'flex items-center '}><p
-                            className={"m-2 icon-user"}></p>Profile</Link></div>
+                            className={"m-2 icon-user"}></p>Profile</Link>
+                        </div>
                     </div>
-                    <img className="inline-block h-10 w-10 rounded-full ring-2 ring-black" alt=""/>
+                    <details className={"ease-in-out  md:hidden decoration-none sticky flex items-center"}>
+                        <summary className={"flex w-full justify-center"}>
+                            <img className="inline-block h-10 w-10 rounded-full ring-2 ring-black" alt=""/>
+                        </summary>
+
+                        <div className={" flex  w-full items-center pointer-events-auto hover:cursor-pointer"}
+                             onClick={exitClickHandler}>
+                            <p className={"m-2 icon-arrow-left"}></p>logout
+                        </div>
+                        <div className={""}><Link to="/*/profile" className={'flex items-center '}><p
+                            className={"m-2 icon-user"}></p>Profile</Link>
+                        </div>
+
+                    </details>
+                    <img className="md:inline-block h-10 w-10 rounded-full ring-2 ring-black hidden" alt=""/>
+
+
                 </div>
             </div>
         </header>

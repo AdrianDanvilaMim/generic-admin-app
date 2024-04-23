@@ -11,6 +11,10 @@ export const Login = () => {
     const dispatch = useAppDispatch()
     const navigate = useNavigate();
 
+    const inputClassName = "h-12 w-full focus:outline-none focus:bg-primary-1 focus:text-white focus:rounded-2xl border-b-primary-2 border-b-2 transition ease-in-out delay-50 duration-300 " +
+        "invalid:border-pink-500  invalid:text-pink-600\n" +
+        "focus:invalid:bg-red-500 focus:invalid:ring-pink-500"
+
     const onClickHandler = (url: string) => {
         console.log("hola")
         navigate(url);
@@ -24,11 +28,12 @@ export const Login = () => {
 
     }
 
-    const onClickHandlerLogin = async (url: string) => {
+    const onSubmitLogin = async (e) => {
+        e.preventDefault()
         try {
             const user =await checkmail("http://localhost:8080/api/user/mailVerification/" + mail)    
             dispatch(userAdd(user))
-            navigate(url)
+            navigate("/*/dashboard")
             console.log("mail exist");
         } catch (error) {
             console.log("mail no exist");
@@ -41,18 +46,21 @@ export const Login = () => {
             <div className={"bg-white sm:w-96 w-80 h-fit   flex flex-col rounded-2xl shadow-2xl"}>
                 <h1 className={'text-4xl m-5'}>Login</h1>
                 <div className={" h-full m-5 flex flex-col justify-between"}>
-                    <form className={"h-64 flex flex-col justify-around disabled:invisible"} >
-
+                    <form className={"h-64 flex flex-col justify-around disabled:invisible"} onSubmit={onSubmitLogin}>
                         <div className={" rounded-2xl"}>
                             <label>Email</label>
-                            <input type={"email"} placeholder={mail}  onChange={(e) => { setmail(e.currentTarget.value) }}
-                                className={"disabled: h-12 w-full focus:outline-none focus:bg-primary-1 focus:text-white focus:rounded-2xl border-b-primary-2 border-b-2 "} />
+                            <input type={"email"} required={true}
+                                   placeholder={mail}
+                                   onChange={(e) => {setmail(e.currentTarget.value)}}
+                                   className={inputClassName}/>
                         </div>
 
                         <div className={" rounded-2xl"}>
                             <label>Password</label>
-                            <input type={"password"} placeholder={""} value={password} onChange={(e) => { setPassword(e.currentTarget.value) }}
-                                className={"h-12 w-full focus:outline-none focus:bg-primary-1 focus:text-white focus:rounded-2xl border-b-primary-2 border-b-2 "} />
+                            <input type={"password"} required={true} placeholder={""}
+                                   value={password} onChange={(e) => {setPassword(e.currentTarget.value)}}
+                                   className={inputClassName}/>
+
                         </div>
                     </form>
                     <div className={"h-fit my-2 flex-col justify-between"}>
@@ -61,7 +69,7 @@ export const Login = () => {
                                 url={"/*/dashboard"}
                                 type={"button"}
                                 className={"h-10 bg-white rounded-2xl border-primary-2 border-2 hover:bg-primary-1 hover:text-white  w-3/12"}
-                                onClickLink={onClickHandlerLogin}>Log In
+                            >Log In
                             </Button>
                             <Button
                                 url={"/register"}
@@ -71,6 +79,7 @@ export const Login = () => {
                             </Button>
                         </div>
                     </div>
+
                 </div>
             </div>
         </main>

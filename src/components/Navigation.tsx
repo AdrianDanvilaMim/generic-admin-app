@@ -26,7 +26,7 @@ export const Navigation = ()=>{
                             </li>
                         </Link>
 
-                        <Link to="/*/c">
+                        <Link to="/*/tasks">
                             <li className={"ml-2  hover:bg-primary-3 hover:text-scarWhite-1 transition duration-150 ease-in-out rounded-2xl h-14 text-xl item flex items-center text-secondary-1"}>
                                 <p className={"m-2 icon-paragraph-justify"}></p>
                                 <p className={"m-2 "}>Tasks</p>

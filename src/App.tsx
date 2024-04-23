@@ -8,6 +8,7 @@ import {Footer} from "./components/Footer.tsx";
 import {Profile} from "./pages/Profile.tsx";
 import {useAppSelector} from "./hooks/hooks.ts";
 import {useEffect} from "react";
+import {Tasks} from "./pages/Tasks.tsx";
 
 
 function App() {
@@ -31,8 +32,7 @@ function App() {
                             <Routes>
                                 <Route path={"/*/dashboard"} element={<Dashboard></Dashboard>}></Route>
                                 <Route path={"/*/profile"} element={<Profile></Profile>}></Route>
-                                <Route path={"/*/dashboard"} element={<Dashboard></Dashboard>}></Route>
-
+                                <Route path={"/*/tasks"} element={<Tasks></Tasks>}></Route>
                                 <Route path={"/*/dashboard"} element={<Dashboard></Dashboard>}></Route>
                             </Routes>
                         </main>
