@@ -1,14 +1,13 @@
 import {createSlice} from "@reduxjs/toolkit";
-const initialState ={
-    data:[]
+
+const initialState = {
+    data: []
 }
 export const genericSlice = createSlice(
     {
-        name:"",
-        initialState:initialState,
-        reducers:{
-
-        }
-}
+        name: "",
+        initialState: initialState,
+        reducers: {}
+    }
 )
 

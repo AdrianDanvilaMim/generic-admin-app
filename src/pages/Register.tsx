@@ -1,12 +1,8 @@
-import { Button } from "../components/Button.tsx";
-import { useNavigate } from "react-router-dom";
-import { useState } from "react";
+import {Button} from "../components/Button.tsx";
+import {useNavigate} from "react-router-dom";
+import {useState} from "react";
 import {User} from "../types/types.ts";
-import {userUpdate} from "../reducers/userSlice.tsx";
-
-
-
-
+import {inputClassName} from "../constants/constants.tsx";
 
 
 export const Register = () => {
@@ -21,10 +17,8 @@ export const Register = () => {
     const [heigth, setheigth] = useState<number>(30)
     const [weigth, setweigth] = useState<number>(30)
 
-    const user: User = {name, mail, gender,password, heigth, weigth}
-    const inputClassName = "h-12 w-full focus:outline-none focus:bg-primary-1 focus:text-white focus:rounded-2xl border-b-primary-2 border-b-2 transition ease-in-out delay-50 duration-300 " +
-        "invalid:border-pink-500  invalid:text-pink-600\n" +
-        "focus:invalid:bg-red-500 focus:invalid:ring-pink-500"
+    const user: User = {name, mail, gender, password, heigth, weigth}
+
 
     const navigate = useNavigate();
 
@@ -50,13 +44,8 @@ export const Register = () => {
         return await response.json()
     }
 
-    const onClickHandler = async (url: string) => {
-
-    }
-
     function onSubmitHandler(e) {
         e.preventDefault()
-
         try {
             //await checkmail("http://localhost:8080/api/user/mailVerification/" + mail)
             console.log("mail ya existe");
@@ -69,7 +58,9 @@ export const Register = () => {
         }
 
     }
+
     const formChangeHandler = (event) => {
+        event.target.required=true
         switch (event.target.name) {
             case "name":
 
@@ -100,12 +91,10 @@ export const Register = () => {
         }
     }
 
-
-
     return (
-        <main className={"bg-[url('../../public/bg-login.png')] bg-cover h-screen w-full flex flex-col justify-center items-center"}>
-            <div className={"bg-white  w-fit h-fit xl:w-1/3   flex flex-col rounded-2xl shadow-2xl"}>
-                <h1 className={'text-3xl mx-5 my-2'}>Register</h1>
+        <main className={"bg-[url('../../public/bg-login.png')] bg-cover h-fit w-full flex flex-col justify-center items-center"}>
+            <div className={"bg-white border-primary-1/15 border-2 w-fit h-fit xl:w-1/3  my-4  flex flex-col rounded-2xl shadow-2xl"}>
+                <h1 className={'text-3xl mx-5 mt-5'}>Register</h1>
                 <div className={" h-fit mx-5 "}>
                     <form className={"h-fit flex flex-col justify-around my-5  "} onSubmit={onSubmitHandler}
                           onChange={formChangeHandler}>
@@ -113,13 +102,11 @@ export const Register = () => {
                             <div className={"rounded-2xl my-4 mr-5 w-full "}>
                                 <label>Name</label>
                                 <input type={"text"} placeholder={"your name"} name={"name"}
-                                       required={true}
                                        className={inputClassName}/>
                             </div>
                             <div className={" rounded-2xl my-4 ml-5 w-full"}>
                                 <label>mail</label>
                                 <input type={"email"}
-                                       required={true}
                                        placeholder={"mail@gmail.com"} name={"mail"} defaultValue={""}
                                        className={inputClassName}/>
                             </div>
@@ -127,15 +114,12 @@ export const Register = () => {
                         <div className={" rounded-2xl my-4"}>
                             <label>Gender</label>
                             <input type={"text"}
-                                   required={true}
-
                                    placeholder={"your gender"} name={"gender"}
                                    className={inputClassName}/>
                         </div>
                         <div className={" rounded-2xl my-4"}>
                             <label>Password</label>
                             <input type={"password"}
-                                   required={true}
                                    placeholder={"**************"} name={"password"}
                                    className={inputClassName}/>
                         </div>

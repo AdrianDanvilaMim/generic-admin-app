@@ -1,26 +1,26 @@
-import  {ReactNode} from "react";
+import {ReactNode} from "react";
 
-interface ButtonPropsInterface{
-    type:"submit"| "reset" | "button" | undefined;
-    className:string;
+interface ButtonPropsInterface {
+    type: "submit" | "reset" | "button" | undefined;
+    className: string;
     //todo
-    value?:never;
-    url?:string;
-    onClickLink?: (url:string)=>void;
-    onClick?: ()=>void;
-    children:ReactNode
+    value?: never;
+    url?: string;
+    onClickLink?: (url: string) => void;
+    onClick?: () => void;
+    children: ReactNode
 
 }
 
-export const Button  =({type,className,url,onClick,onClickLink,children}:ButtonPropsInterface)=>{
-    return(
+export const Button = ({type, className, url, onClick, onClickLink, children}: ButtonPropsInterface) => {
+    return (
         <>
             <button type={type} className={className}
-                    onClick={()=>{
+                    onClick={() => {
                         if (url && onClickLink) onClickLink(url)
-                        else if(onClick) onClick()
+                        else if (onClick) onClick()
                     }}>
-                    {children}
+                {children}
             </button>
 
         </>
