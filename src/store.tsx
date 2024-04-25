@@ -4,12 +4,12 @@ import {taskSlice} from "./reducers/taskSlice.tsx";
 
 
 export const store = configureStore(
-    {
-        reducer: {
-            user: userSlice.reducer,
-            task: taskSlice.reducer
-        }
+  {
+    reducer: {
+      user: userSlice.reducer,
+      task: taskSlice.reducer
     }
+  }
 )
 
 
