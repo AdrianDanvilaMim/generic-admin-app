@@ -1,7 +1,6 @@
 import {createSlice, PayloadAction} from "@reduxjs/toolkit";
 import {TaskType} from "../types/types.ts";
 
-
 type taskState = {
   task: TaskType
   taskBack: TaskType
@@ -11,7 +10,7 @@ const initialState: taskState = {
     id: "1",
     name: "try 1",
     userId: "2",
-    details: [],
+    details: null,
     comments: null
   },
   taskBack: {

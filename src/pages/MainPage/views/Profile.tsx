@@ -22,7 +22,7 @@ export const Profile = () => {
     setIsEnable(!isEnabled)
   }
 
-  function onSubmitSaveHandler(e) {
+  function onSubmitSaveHandler(e: { preventDefault: () => void; }) {
     e.preventDefault()
     console.log(state)
     if (!isEnabled) {

@@ -16,6 +16,8 @@ export const Register = () => {
     weight: 2
   })
 
+  const [required , setRequired] = useState(false)
+
   const navigate = useNavigate();
 
   const postUser = async (url: string, user: User) => {
@@ -42,25 +44,33 @@ export const Register = () => {
 
   async function onSubmitHandler(e) {
     e.preventDefault()
+
+    console.log(e.target.mail.invalid)
     console.log(user)
-    if (user.mail != "" && user.password != "") {
+    //validation
+    const re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    if (re.test(user.mail) && user.password != "" ) {
+      console.log("validated")
       try {
         //await checkMail("http://localhost:8080/api/user/mailVerification/" + mail)
+        setRequired(true)
         console.log("mail ya existe");
       } catch (error) {
         console.log("no existe el mail");
         //await postUser("http://localhost:8080/api/user", user)
+        //password validation then post
         //if (await postUser("http://localhost:8080/api/user", user))
         navigate("/");
-
       }
-    } else {
-      console.log("form no validated")
+    }
+    else {
+      console.log("non validated")
+      console.log()
+      setRequired(true)
     }
   }
 
   const formChangeHandler = (event) => {
-    event.target.required = true
     switch (event.target.name) {
       case "name":
         user.name = event.target.value
@@ -103,26 +113,31 @@ export const Register = () => {
               <div className={"rounded-2xl my-4 mr-5 w-full "}>
                 <label>Name</label>
                 <input type={"text"} placeholder={"your name"} name={"name"}
-                       className={inputClassName}/>
+                       className={inputClassName}
+                        required={required}/>
               </div>
               <div className={" rounded-2xl my-4 ml-5 w-full"}>
                 <label>mail</label>
-                <input type={"email"}
+                <input type={"text  "}
                        placeholder={"mail@gmail.com"} name={"mail"} defaultValue={""}
-                       className={inputClassName}/>
+                       className={inputClassName}
+                        required={required}
+                        />
               </div>
             </div>
             <div className={" rounded-2xl my-4"}>
               <label>Gender</label>
               <input type={"text"}
                      placeholder={"your gender"} name={"gender"}
-                     className={inputClassName}/>
+                     className={inputClassName}
+                     required={required}/>
             </div>
             <div className={" rounded-2xl my-4"}>
               <label>Password</label>
               <input type={"password"}
                      placeholder={"**************"} name={"password"}
-                     className={inputClassName}/>
+                     className={inputClassName}
+                     required={required}/>
             </div>
             <div className={" rounded-2xl my-4"}>
               <label>height :{user?.height} cm</label>

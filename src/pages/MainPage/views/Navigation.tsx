@@ -18,8 +18,7 @@ export const Navigation = ({className}: NavigationProps) => {
             <h1 className={"hidden sm:block"}>Important Links</h1>
             <ul className={" my-4 flex flex-row sm:flex-col  h-full relative"}>
               {
-                links.map((element) => {
-                  return (
+                links.map((element) =>
                     <Link to={element.url}>
                       <li
                         className={" pl-2 hover:bg-primary-3 hover:text-scarWhite-1 transition duration-150 ease-in-out rounded-md h-14 text-xl item flex items-center text-secondary-1"}>
@@ -27,8 +26,7 @@ export const Navigation = ({className}: NavigationProps) => {
                         <p className={"m-2 "}>{element.name}</p>
                       </li>
                     </Link>
-                  )
-                })
+                )
               }
             </ul>
           </ul>

@@ -10,10 +10,14 @@ import {PATHS} from "../router/constants.ts";
 export const Login = () => {
   const [mail, setMail] = useState<string>("your@mail.com")
   const [password, setPassword] = useState<string>("")
+  const [modalVisibility, setModalVisibility] = useState(false)
 
   const dispatch = useAppDispatch()
   const navigate = useNavigate();
 
+  const closeModal  =()=>{
+    setModalVisibility(false)
+  }
 
   const onClickHandler = (url: string) => {
     console.log("hola")
@@ -25,10 +29,10 @@ export const Login = () => {
       method: "GET",
     })
     return await response.json()
-
   }
 
-  const onSubmitLogin = async (e) => {
+  const onSubmitLogin = async (e: { preventDefault: () => void; }) => {
+    setModalVisibility(true)
     e.preventDefault()
     try {
       const user = await checkMail("http://localhost:8080/api/user/mailVerification/" + mail)
@@ -41,9 +45,10 @@ export const Login = () => {
   }
 
   return (
-    <main
-      className={"bg-[url('../../public/bg-login.png')] bg-cover h-screen w-full flex flex-col justify-center items-center"}>
-      <Modal></Modal>
+    <main className={"bg-[url('../../public/bg-login.png')] bg-cover h-screen w-full flex flex-col justify-center items-center"}>
+      <Modal closeModal={closeModal} visibility={modalVisibility}>
+        aaaaaaaaaaaaa
+      </Modal>
       <div
         className={"bg-white sm:w-96 w-80 h-fit  border-primary-1/15 border-2    flex flex-col rounded-2xl shadow-2xl"}>
         <h1 className={'text-4xl m-5'}>Login</h1>

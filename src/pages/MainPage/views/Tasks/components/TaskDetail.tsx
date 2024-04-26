@@ -13,8 +13,8 @@ export const TaskDetail = ({taskDetails}: TaskProps) => {
   const state = useAppSelector((state) => state.task)
 
   return (
-    <div className={"mx-4"}>
-      <div className={"w-full border-b-2 border-b-secondary-2 grid grid-cols-4 h-12     items-center"}>
+
+      <div className={"w-11/12 border-b-2 border-b-secondary-2 grid grid-cols-4   items-center"}>
         <p>name:{taskDetails?.name}</p>
         <p>Description: {taskDetails?.description}</p>
         <Button type={"button"}
@@ -22,6 +22,5 @@ export const TaskDetail = ({taskDetails}: TaskProps) => {
           Edit
         </Button>
       </div>
-    </div>
   )
 }

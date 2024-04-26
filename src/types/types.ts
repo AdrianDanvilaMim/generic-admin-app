@@ -1,3 +1,4 @@
+//id:-1 non saved in db
 export type  User = {
   id?: string,
   name: string,

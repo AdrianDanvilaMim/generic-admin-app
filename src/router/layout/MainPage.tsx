@@ -2,16 +2,17 @@ import {Outlet, useNavigate} from "react-router-dom";
 
 import {useAppSelector} from "../../hooks/hooks.ts";
 import {useEffect} from "react";
-import {Navigation} from "./components/Navigation.tsx";
-import {Header} from "./components/Header.tsx";
+import {Navigation} from "../../pages/MainPage/views/Navigation.tsx";
+import {Header} from "../../pages/MainPage/views/Header.tsx";
 
-import {Footer} from "./components/Footer.tsx";
+import {Footer} from "../../pages/MainPage/views/Footer.tsx";
 
 export function MainPage() {
   const navigate = useNavigate();
   const state = useAppSelector((state) => state.user.user)
   console.log(state)
-
+  //layout , move to /router/layout/...
+  //secure root
   useEffect(() => {
     if (state.id == '') {
       navigate("/")
