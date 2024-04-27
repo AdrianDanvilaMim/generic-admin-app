@@ -1,5 +1,5 @@
 import {BaseTable} from "../../../components/share/BaseTable.tsx";
-import {useAppSelector} from "../../../hooks/hooks.ts";
+import useAsync, {useAppSelector} from "../../../hooks/hooks.ts";
 
 export const Dashboard = () => {
   const state = useAppSelector((state) => state.user)

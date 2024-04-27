@@ -8,18 +8,19 @@ type userState = {
 }
 const initialState: userState = {
   user: {
-    id: "11",
-    name: "string",
-    mail: "string",
-    gender: "string",
+    id: "-1",
+    name: "",
+    mail: "",
+    gender: "",
+    password:"",
     height: 2,
     weight: 2
   },
   userBackUp: {
-    id: "11",
-    name: "string",
-    mail: "string",
-    gender: "string",
+    id: "-1",
+    name: "",
+    mail: "",
+    gender: "",
     height: 2,
     weight: 2
   }
@@ -45,6 +46,11 @@ export const userSlice = createSlice(
             return
           case "mail":
             state.user.mail = actions.payload.value
+
+            return
+
+          case "password":
+            state.user.password = actions.payload.value
 
             return
           case "height":

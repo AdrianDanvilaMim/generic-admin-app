@@ -1,8 +1,10 @@
 import {Button} from "../components/share/Button.tsx";
 import {useNavigate} from "react-router-dom";
-import {useState} from "react";
+import {useEffect, useState} from "react";
 import {User} from "../types/types.ts";
 import {inputClassName} from "../constants/constants.tsx";
+import {userCancelUpdate, userChangeValue} from "../reducers/userSlice.tsx";
+import {useAppDispatch, useAppSelector} from "../hooks/hooks.ts";
 
 export const Register = () => {
 
@@ -15,6 +17,11 @@ export const Register = () => {
     height: 2,
     weight: 2
   })
+
+
+  const dispatch = useAppDispatch()
+  const state = useAppSelector((state) => state.user.user)
+
 
   const [required , setRequired] = useState(false)
 
@@ -49,14 +56,49 @@ export const Register = () => {
     console.log(user)
     //validation
     const re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-    if (re.test(user.mail) && user.password != "" ) {
+    if (re.test(state.mail) ){
+      //change styles to validated
+    }else{
+      //change styles to non validated
+      e.target.mail.value=""
+      dispatch(userChangeValue({value: "", typeData: "mail"}))
+      e.target.mail.placeholder="non valid email"
+
+    }
+
+    if ( state.password != "" ){
+      //change styles to validated
+    }else{
+      //change styles to non validated
+      e.target.password.value=""
+      dispatch(userChangeValue({value: "", typeData: "password"}))
+      e.target.password.placeholder="non valid password"
+
+    }
+
+    if (state.name!="" ){
+      //change styles to validated
+    }else{
+      //change styles to non validated
+      e.target.name.value=""
+      dispatch(userChangeValue({value: "", typeData: "password"}))
+      e.target.name.placeholder="non valid name"
+
+    }
+
+    if (re.test(state.mail) && state.password != "" && state.name!="" ) {
       console.log("validated")
       try {
         //await checkMail("http://localhost:8080/api/user/mailVerification/" + mail)
         setRequired(true)
+        //change email styles to non validated
         console.log("mail ya existe");
+        e.target.mail.value=""
+        dispatch(userChangeValue({value: "", typeData: "mail"}))
+        e.target.mail.placeholder="this mail is already in use"
       } catch (error) {
         console.log("no existe el mail");
+        //change email styles to validated
         //await postUser("http://localhost:8080/api/user", user)
         //password validation then post
         //if (await postUser("http://localhost:8080/api/user", user))
@@ -65,39 +107,12 @@ export const Register = () => {
     }
     else {
       console.log("non validated")
-      console.log()
       setRequired(true)
     }
   }
 
   const formChangeHandler = (event) => {
-    switch (event.target.name) {
-      case "name":
-        user.name = event.target.value
-        return
-
-      case "password":
-        user.password = event.target.value
-
-        return
-
-      case "mail":
-       user.mail= event.target.value
-
-        return
-      case "height":
-        user.height = Number.parseInt(event.target.value)
-        return
-
-      case "weight":
-        user.weight =Number.parseInt(event.target.value)
-        return
-
-      case "gender":
-        user.gender = event.target.value
-        return
-
-    }
+    dispatch(userChangeValue({value: event.target.value, typeData: event.target.name}))
   }
 
   return (
@@ -140,21 +155,21 @@ export const Register = () => {
                      required={required}/>
             </div>
             <div className={" rounded-2xl my-4"}>
-              <label>height :{user?.height} cm</label>
+              <label>height :{state.height} cm</label>
               <input type={"range"}
                      key={"height"}
                      name={"height"}
-                     value={user.height}
+                     value={state.height}
                      min={130}
                      max={210}
                      className={"h-12 accent-primary-1 w-full focus:outline-none focus:bg-primary-1 focus:text-white focus:rounded-2xl border-b-primary-2 border-b-2 "}/>
             </div>
 
             <div className={" rounded-2xl my-4"}>
-              <label>weight :{user?.weight} kg</label>
+              <label>weight :{state.weight} kg</label>
               <input type={"range"}
                      name={"weight"}
-                     value={user.weight}
+                     value={state.weight}
                      min={30} max={200}
                      className={"h-12 accent-primary-1 w-full focus:outline-none focus:bg-primary-1 focus:text-white focus:rounded-2xl border-b-primary-2 border-b-2 "}/>
             </div>
